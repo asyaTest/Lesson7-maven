@@ -53,7 +53,10 @@ public class WeatherService {
             WeatherResponse weatherResponse = objectMapper.readValue(jsonResponse, WeatherResponse.class);
             for (int index = 0; index < weatherResponse.DailyForecasts.length; index++) {
                 DailyForecast item = weatherResponse.DailyForecasts[index];
-                System.out.println(item.Day.IconPhrase);
+                System.out.println("В городе Санкт-Петербург на дату " + item.Date + " ожидается " + item.Day.IconPhrase + " Минимальная температура " + item.Temperature.Minimum.Value + " Максимальная температура " + item.Temperature.Maximum.Value);
+
+                // System.out.print("В городе " + CITY + "на дату " + DATE + "ожидается " + item.Day.IconPhrase
+                // + "температура " + TEMPERATURE);
             }
         } catch (IOException e) {
             e.printStackTrace();
